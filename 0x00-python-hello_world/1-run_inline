@@ -1,2 +1,2 @@
 #!/bin/bash
-cat &PYCODE | python 3
+cat -c &PYCODE | python 3 
