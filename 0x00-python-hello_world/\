@@ -1,2 +1,0 @@
-#!/bin/bash
-cat &PYCODE | python 3
