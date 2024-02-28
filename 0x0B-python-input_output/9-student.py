@@ -1,5 +1,10 @@
 #!/usr/bin/python3
 
+"""
+This module contains a class that defines a student with their details.
+"""
+
+
 class Student:
     """This class defines a student
 
