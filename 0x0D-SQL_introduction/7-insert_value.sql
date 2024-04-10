@@ -1,2 +1,2 @@
-#!/usr/bin/python3
+-- adds the rows into first model
 INSERT INTO first_table(id, name) VALUES(89, 'Best School')
