@@ -9,10 +9,11 @@ class Rectangle {
   }
 
   print () {
-    const line = 'x'.repeat(this.width);
+    const line = 'X'.repeat(this.width);
     for (let i = 0; i < this.height; i++) {
       console.log(line);
     }
   }
 }
+
 module.exports = Rectangle;
