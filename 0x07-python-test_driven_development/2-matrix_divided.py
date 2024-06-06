@@ -1,46 +1,44 @@
 #!/usr/bin/python3
-
-"""Implements a function matrix_divided()."""
+"""Divide a matrix"""
 
 
 def matrix_divided(matrix, div):
-    """Divides all elements of a matrix.
-
-    Args:
-        matrix (list): A list of lists of integers or floats
-        div (int/float): Divisor
-
-    Raises:
-        TypeError: If the matrix contains non-numbers
-        TypeError: If each row of different size
-        TypeError: If div is not a number
-        ZeroDivisionError: If div is equals to 0
-
-    Returns: A new matrix with all matrix elements divided by div
-    """
-    new = []
-    row_size = len(matrix[0])
-
-    if type(matrix) != list or matrix == []:
-        raise TypeError("matrix must be matrix \
-                (list of lists) of integers/floats")
+    """divides all elements of @matrix by @div"""
+    new_matrix = []
+    if div == 0:
+        raise ZeroDivisionError("division by zero")
+    if not isinstance(div, float) and not isinstance(div, int):
+        raise TypeError("div must be a number")
+    if not isinstance(matrix, list):
+        matrix_error()
 
     for row in matrix:
-        if (type(row) != list or
-                all((type(item) != int and type(item) != float)
-                    for item in row)):
-            raise TypeError("matrix must be a matrix \
-                    (list of lists) of integers/floats")
-
-        if row_size != len(row):
+        if not isinstance(row, list):
+            matrix_error()
+        row_len = len(matrix[0])
+        if len(row) != row_len:
             raise TypeError("Each row of the matrix must have the same size")
+        new_row = []
+        for elem in row:
+            if not isinstance(elem, int) and not isinstance(elem, float):
+                matrix_error()
+            new_row.append(round(elem / div, 2))
+        new_matrix.append(new_row)
 
-        if type(div) != int and type(div) != float:
-            raise TypeError("div must be a number")
+    return new_matrix
 
-        if div == 0:
-            raise ZeroDivisionError("division by zero")
 
-        new.append([round((item / div), 2) for item in row])
+def matrix_error():
+    """raises type_error on invalid matrix input"""
+    raise TypeError("matrix must be a matrix (list of lists)\
+                     of integers/floats")
 
-    return (new)
+
+"""
+matrix = [
+    [1, '2', 3],
+    [4, 5, 6]
+]
+print(matrix_divided(matrix, 3))
+print(matrix)
+"""
