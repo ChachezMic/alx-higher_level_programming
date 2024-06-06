@@ -1,3 +1,11 @@
+#!/usr/bin/python3
+
+"""
+Module contains function: matrix_divided()
+that divides all elements of a matrix
+"""
+
+
 def matrix_divided(matrix, div):
     """Divide all elements of matrix by div
     Args:
